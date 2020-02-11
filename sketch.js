@@ -4,7 +4,7 @@ let mapa = [
     [1,1,1],
 ]
 
-let fuguras = [];
+let figuras = [];
 let turno;
 
 function setup () {
@@ -35,6 +35,7 @@ function mousePressed() {
 
     if (turno == 2) {
         figuras.push(new equis (mouseX, mouseY));
+        turno--;
     }
     
 

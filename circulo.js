@@ -1,4 +1,4 @@
-class circulo extends Figura{
+class circulo extends figura{
     constructor(px,py){
         super(px,py);
     }

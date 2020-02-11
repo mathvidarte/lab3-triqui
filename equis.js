@@ -1,4 +1,4 @@
-class equis extends Figura {
+class equis extends figura {
     constructor (px, py) {
         super (px, py);
 
