@@ -4,6 +4,8 @@ class Figura {
         this.py = py;
     }
 
-    pintar();
+    pintar () {
+
+    }
     
 }
