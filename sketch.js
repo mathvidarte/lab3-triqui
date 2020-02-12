@@ -4,10 +4,20 @@ let mapa = [
     [0,0,0],
 ]
 
+let eo;
+let ayuwoki;
+
+
 let figuras = [];
 let turno;
 let valor1 = 0;
 let valor2 = 0;
+
+
+function preload(){
+    eo = loadImage("images/eo.png");
+    ayuwoki = loadImage("images/hehe.jpg");
+}    
 
 function setup () {
     createCanvas (600,600);
