@@ -30,12 +30,12 @@ function draw () {
 function mousePressed() {
     if (turno == 1) {
         figuras.push(new circulo(mouseX, mouseY));
-        turno++;
+        turno = 2;
     }
 
     if (turno == 2) {
         figuras.push(new equis (mouseX, mouseY));
-        turno--;
+        turno = 1;
     }
     
 
