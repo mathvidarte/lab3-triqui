@@ -1,6 +1,10 @@
 let mapa = new Array(3);
 let turno = 1;
 let cambiarTurno = false;
+let eo;
+let hehe;
+
+
 let gano1 = false;
 let gano2 = false;
 let empate = false;
@@ -8,6 +12,12 @@ let fila = 3;
 let col = 3;
 
 let pantalla;
+
+function preload(){
+    eo = loadImage("images/eo.png");
+    hehe = loadImage("images/hehe.jpg");
+
+}
 
 function setup () {
     createCanvas (600,600);
@@ -24,7 +34,28 @@ function setup () {
 
 function draw () {
 
+    //lineas triqui
+    line(200,0,200,600);
+    line(400,0,400,600);
+    line(0,200,600,200);
+    line(0,400,600,400);
     
+    for (let i = 0; i < 3; i++){
+        for(let j = 0; j < 3; j++){
+            d= mapa[i][j];
+            d.pintar();
+
+       
+        }
+    }
+
+
+
+    //for (let i = 0; i < 3; i++){
+      //  for(let j = 0; j < 3; j++){
+           // mapa[i][j].pintar();
+        //}
+    //}  
 
     switch(pantalla){
         case 0:
@@ -103,13 +134,19 @@ function draw () {
                     break;
 
         }
+
+
     
     
   
     
 
     console.log(empate);
+
 }
+    
+
+    
 
 function validarGanar () {
 
