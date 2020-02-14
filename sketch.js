@@ -54,10 +54,11 @@ function draw () {
                 if (mapa[i][0].num != 0 && mapa[i][1].num != 0 && mapa[i][2].num != 0 &&
                     mapa[0][i].num != 0 && mapa[1][i].num != 0 && mapa[2][i].num != 0 &&
                     mapa[0][0].num != 0 && mapa[1][1].num != 0 && mapa[2][2].num != 0 &&
-                mapa[0][2].num != 0 && mapa[1][1].num != 0 && mapa[2][0].num != 0) {
+                    mapa[0][2].num != 0 && mapa[1][1].num != 0 && mapa[2][0].num != 0 && 
+                    gano1 == false && gano2 == false) {
                         empate = true;
                     }
-    }
+                }
 
             validarGanar();
             
@@ -77,16 +78,18 @@ function draw () {
             }  
             break;
 
-            case 2:
+        case 2:
                 background (190, 175, 355);
                     if (gano1 == true) {
                         //textMode(CENTER);
+                        empate = false;
                         fill (255);
                         noStroke();
                         textSize (40);
                         text("Ganó Fredy Eeeeeoooo!!", 80, 300);
                     } else if (gano2 == true) {
                         //textMode(CENTER);
+                        empate = false;
                         fill (255);
                         textSize (40);
                         text("Ganó el Ayuwoki heheeee!!", 100, 300);
