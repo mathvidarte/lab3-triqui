@@ -1,77 +1,83 @@
-let mapa = [
+let filas = 3;
+let col = 3;
+
+/*let mapa = [
     [0,0,0],
     [0,0,0],
     [0,0,0],
-]
+]*/
+
+let mapa = [[]];
 
 let figuras = [];
-let turno;
-let valor1 = 0;
-let valor2 = 0;
+
+let turno = 1;
+let cambiarTurno = false;
 
 function setup () {
     createCanvas (600,600);
-    turno = 1;
 
+    mapa = [filas[col]];
+
+    for (let i = 0; i < filas; i++){
+        for(let j = 0; j < col; j++){
+            mapa[i[j]] = 0;
+        }
+    }
 }
 
 function draw () {
     background(132,195,190);
 
     //lineas triqui
-    //line(166.6, 0, 166.5, 500);
-    //line(333.4, 0, 333.4, 500);
-    //line(0, 166.6,500,  166.5);
-    //line(0, 333.4, 500, 333.4);
-
-    for (let i = 0; i < 3; i++){
-        for(let j = 0; j < 3; j++){
-
-            valor1 = mapa[i];
-            valor2 = valor1[j];
-    
-            if(valor2 ==0){
-                //vacio
-            }
-            if(valor2 ==1){
-                //pinte sol
-                figuras.push(new circulo(i, j));
-            }
-            if(valor2 ==2){
-                //pinte luna
-                figuras.push(new equis (i, j));
-            }
-        }
-
-    }
+    line(200,0,200,600);
+    line(400,0,400,600);
+    line(0,200,600,200);
+    line(0,400,600,400);
 
     for (let i = 0; i < figuras.length; i++) {
-            figuras[i].pintar();
+        figuras[i].pintar();
     }
+
+    for (let i = 0; i < filas; i++){
+        for(let j = 0; j < col; j++){
+            switch(mapa[i[j]]){
+                case 0:
+                    //nada
+                    break;
+                case 1:
+                    //circulo
+                    figuras.push(new circulo(i*200, j*200));
+                    break;
+                case 2:
+                    //equis
+                    figuras.push(new equis (i*200, j*200));
+                    break;
+            }
+        }
+    }
+       
 }
 
 function mousePressed() {
 
-    if(mapa[0][0]){
-        if(turno == 1){
-            valor2 = 1;
-            turno = 2;
-        }else{
-            valor2 = 2;
-            turno = 1;
+    for (let i = 0; i < filas; i++){
+        for(let j = 0; j < col; j++){
+            if(mouseX > i*200 && mouseX < i*200 + 200 && mouseY > j*200 && mouseY < j*200+200){
+                if(mapa[i[j]] == 0){
+                    mapa[i[j]] = turno;
+
+                    if(!cambiarTurno){
+                        turno = 2;
+                        cambiarTurno = true;
+                        return;
+                    }
+                    if(cambiarTurno){
+                        turno = 1;
+                        cambiarTurno = false;
+                    }
+                }
+            }
         }
     }
-
-    switch(turno){
-        case 1:
-            valor2 = 1;
-            turno = 2;
-            break;
-        case 2:
-            valor2 = 2;
-            turno = 1;
-            break;
-
-    }
-    
 }
