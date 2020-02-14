@@ -1,6 +1,14 @@
 let mapa = new Array(3);
 let turno = 1;
 let cambiarTurno = false;
+let eo;
+let hehe;
+
+function preload(){
+    eo = loadImage("images/eo.png");
+    hehe = loadImage("images/hehe.jpg");
+
+}
 
 function setup () {
     createCanvas (600,600);
@@ -21,13 +29,27 @@ function draw () {
     line(400,0,400,600);
     line(0,200,600,200);
     line(0,400,600,400);
-
+    
     for (let i = 0; i < 3; i++){
         for(let j = 0; j < 3; j++){
-            mapa[i][j].pintar();
+            d= mapa[i][j];
+            d.pintar();
+
+       
         }
-    }  
+    }
+
+
+
+    //for (let i = 0; i < 3; i++){
+      //  for(let j = 0; j < 3; j++){
+           // mapa[i][j].pintar();
+        //}
+    //}  
 }
+
+
+
 
 function mousePressed() {
 
@@ -38,9 +60,12 @@ function mousePressed() {
 
                     if (cambiarTurno == false){
                         turno = 1;
+                        d = new Jugador1(i*200, j*200);
+
                         cambiarTurno = true;
                     }else{
                         turno = 2;
+                        d = new Jugador2(i*200, j*200);
                         cambiarTurno = false;
                     }
 
@@ -53,4 +78,5 @@ function mousePressed() {
                 }
             }
         }
-    }
+
+}
