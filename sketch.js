@@ -9,10 +9,19 @@ let col = 3;
 
 let mapa = [[]];
 
+let eo;
+let ayuwoki;
+
 let figuras = [];
 
 let turno = 1;
 let cambiarTurno = false;
+
+
+function preload(){
+    eo = loadImage("images/eo.png");
+    ayuwoki = loadImage("images/hehe.jpg");
+}    
 
 function setup () {
     createCanvas (600,600);

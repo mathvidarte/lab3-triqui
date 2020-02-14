@@ -3,8 +3,9 @@ class circulo extends Figura{
         super(px,py);
     }
     pintar(){
-        fill(55,230,123);
-        ellipseMode(CORNER);
-        ellipse(this.px,this.py,200,200);
+        //fill(355,0,0);
+        //ellipse(this.px,this.py,200,200);
+        image(eo,this.px,this.py,200,200);
+
     }
 }
